@@ -125,11 +125,15 @@ public interface BeanFactory {
 
 
 	/**
+	 * 返回一个可能是分享出来的或者独立的特定实例，
 	 * Return an instance, which may be shared or independent, of the specified bean.
+	 * 这个方法让Spring Beanfactory实现了单例或者原型模式。调用者保持对单例的唯一引用
 	 * <p>This method allows a Spring BeanFactory to be used as a replacement for the
 	 * Singleton or Prototype design pattern. Callers may retain references to
 	 * returned objects in the case of Singleton beans.
+	 * 把别名转化为相应的bean的名称
 	 * <p>Translates aliases back to the corresponding canonical bean name.
+	 * 如果在当前工厂找不到这个bean，就会去向父工厂询问
 	 * Will ask the parent factory if the bean cannot be found in this factory instance.
 	 * @param name the name of the bean to retrieve
 	 * @return an instance of the bean
